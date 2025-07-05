@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <!-- Enlace a los estilos personalizados -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/formulario.css' %}">
+</head>
+<body>
+  <!-- Contenedor principal del formulario de login -->
+  <div id="caja_principal">
+    <h2>Iniciar sesión</h2>
+    <!-- Formulario para iniciar sesión -->
+    <form method="POST">
+      {% csrf_token %}  <!-- Token de seguridad CSRF -->
+
+      <!-- Campo para ingresar nombre o correo electrónico -->
+      <label for="id_nombre">Nombre o correo electrónico:</label>
+      <input type="text" name="nombre" id="id_nombre" required>
+
+      <!-- Campo para ingresar la contraseña -->
+      <label for="id_password">Contraseña:</label>
+      <input type="password" name="password" id="id_password" required>
+
+      <!-- Botón para enviar el formulario -->
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <div style="margin-top: 20px;">
+    <a href="{% url 'home' %}" style="color: #8E44AD; text-decoration: none;">← Volver al inicio</a>
+  </div>
+
+</body>
+</html>

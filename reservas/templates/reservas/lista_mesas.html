@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Lista de Mesas</title>  
+
+    <style>
+        /* Estilos generales de la página */
+        body {
+            background-color: #f4f4f4;  /* Fondo gris claro */
+            font-family: Arial, sans-serif;  /* Fuente limpia y moderna */
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;  /* Ancho máximo del contenido centrado */
+            margin: auto;
+        }
+
+        h1 {
+            color: #2C2C3A;  /* Gris oscuro */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Tarjetas que representan cada mesa */
+        .mesa-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);  /* Sombra ligera */
+        }
+
+        .mesa-card h3 {
+            margin: 0;
+            color: #8E44AD;  /* Morado principal */
+        }
+
+        .mesa-card p {
+            margin: 10px 0;
+            color: #2C2C3A;  /* Gris oscuro para el texto */
+        }
+
+        /* Botón de acción (reservar) */
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #8E44AD;  /* Morado */
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #732d91;  /* Morado más oscuro al pasar el mouse */
+        }
+
+        /* Alerta que aparece si no hay mesas disponibles */
+        .alert {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Mesas</h1>
+
+        {% if mesas %}  <!-- Si hay mesas registradas... -->
+            {% for mesa in mesas %}  <!-- Recorre cada mesa -->
+                <div class="mesa-card">
+                    <h3>Mesa {{ mesa.numero }}</h3>  <!-- Muestra el número de la mesa -->
+                    <p>Capacidad: {{ mesa.capacidad }} personas</p>  <!-- Muestra la capacidad -->
+                    <a href="{% url 'hacer_reserva' mesa.id %}" class="btn">Reservar</a>  <!-- Botón para reservar esa mesa -->
+                </div>
+            {% endfor %}
+        {% else %}  <!-- Si NO hay mesas registradas -->
+            <div class="alert">
+                No hay mesas registradas aún.
+            </div>
+
+        {% endif %}
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'home' %}" class="btn">Volver al inicio</a>
+    </div>
+
+</body>
+</html>

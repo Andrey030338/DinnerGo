@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificación de registro</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #F4F4F4;
+      color: #2C2C3A;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #8E44AD;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 12px 0;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #8E44AD;
+      color: #F4F4F4;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #732d91;
+    }
+
+    .plain-link {
+      color: #8E44AD;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <h2>¡Hola {{ nombre }}!</h2>
+  <p>Gracias por registrarte. Para completar tu registro, haz clic en el siguiente botón:</p>
+
+  <p>
+    <a href="{{ link }}" class="button">✅ Verificar y crear mi cuenta</a>
+  </p>
+
+  <p>Si no puedes hacer clic en el botón, copia y pega este enlace en tu navegador:</p>
+  <p class="plain-link">{{ link }}</p>
+</body>
+</html>

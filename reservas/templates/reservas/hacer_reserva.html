@@ -1,0 +1,152 @@
+{% load humanize %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hacer Reserva</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+        background-color: #f4f4f4;
+      }
+
+      h1, h2 {
+        color: #2c2c3a;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      input[type="number"] {
+        width: 80px;
+      }
+
+      .plato {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 8px;
+      }
+
+      .btn {
+        background-color: #8e44ad;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #732d91;
+      }
+
+      /* Estilos para los enlaces tipo botón */
+      .link-btn {
+        display: inline-block;
+        margin-top: 20px;
+        margin-right: 10px;
+        padding: 10px 20px;
+        background-color: #2c2c3a;
+        color: #f4f4f4;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .link-btn.purple {
+        background-color: #8e44ad;
+      }
+
+      .link-btn:hover {
+        background-color: #1a1a27;
+      }
+
+      .link-btn.purple:hover {
+        background-color: #732d91;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reservar Mesa {{ mesa.numero }}</h1>
+    <p>Capacidad: {{ mesa.capacidad }} personas</p>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="id_nombre_cliente">{{ form.nombre_cliente.label }}</label>
+      {{ form.nombre_cliente }}
+
+      <label for="id_fecha">{{ form.fecha.label }}</label>
+      {{ form.fecha }}
+
+      <label for="id_hora">{{ form.hora.label }}</label>
+      {{ form.hora }}
+
+      <label for="id_cantidad_personas">{{ form.cantidad_personas.label }}</label>
+      {{ form.cantidad_personas }}
+
+      <h2>Selecciona tus platos</h2>
+
+      {% for plato in platos %}
+      <div class="plato">
+        {% if plato.imagen %}
+        <img
+          src="{{ plato.imagen.url }}"
+          alt="{{ plato.nombre }}"
+          style="
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+        {% endif %}
+
+        <label for="plato_{{ plato.id }}">
+          <strong>{{ plato.nombre }}</strong> – {{ plato.precio|intcomma }} COP
+        </label>
+
+        <input
+          type="number"
+          name="plato_{{ plato.id }}"
+          id="plato_{{ plato.id }}"
+          min="0"
+          value="0"
+        />
+      </div>
+      {% endfor %}
+
+      {{ form.pedido.as_hidden }}
+
+      <button type="submit" class="btn">Confirmar Reserva</button>
+    </form>
+
+    <!-- Enlaces estilizados -->
+    <a href="{% url 'lista_mesas' %}" class="link-btn purple">← Volver a la lista de mesas</a>
+    <a href="{% url 'home' %}" class="link-btn">← Volver al inicio</a>
+  </body>
+</html>

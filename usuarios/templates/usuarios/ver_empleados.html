@@ -1,0 +1,36 @@
+{% extends 'usuarios/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Empleados</h2>
+
+  {% if empleados %}
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre de Usuario</th>
+          <th>Correo</th>
+          <th>Rol</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for empleado in empleados %}
+          <tr>
+            <td>{{ empleado.username }}</td>
+            <td>{{ empleado.email }}</td>
+            <td>
+              {% for grupo in empleado.groups.all %}
+                {{ grupo.name }}
+              {% empty %}
+                Sin Rol
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No hay empleados registrados aún.</p>
+  {% endif %}
+</div>
+{% endblock %}

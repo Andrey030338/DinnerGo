@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">  
+  <title>Reserva Exitosa</title>  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      color: #2c2c3a;
+    }
+
+    h1 {
+      color: #8e44ad;
+    }
+
+    .info {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #8e44ad;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #732d91;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .botones a {
+      flex: 1;
+      text-align: center;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <h1>¡Reserva Exitosa!</h1>
+
+    <p><strong>Cliente:</strong> {{ nombre_cliente }}</p>
+    <p><strong>Fecha:</strong> {{ fecha }}</p>
+    <p><strong>Hora:</strong> {{ hora }}</p>
+
+    <h3>Platos seleccionados:</h3>
+    <ul>
+      {% for plato in platos %}
+        <li>{{ plato.plato.nombre }} x {{ plato.cantidad }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Resumen del pedido:</h3>
+    <pre>{{ reserva.pedido }}</pre>
+
+    <!-- Botones: hacer otra reserva y volver al inicio -->
+    <div class="botones">
+      <a href="{% url 'lista_mesas' %}" class="btn">← Hacer otra reserva</a>
+      <a href="{% url 'home' %}" class="btn">🏠 Ir al inicio</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(../img/wallpaperpueba.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: #2C2C3A;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#caja_principal {
+  background-color: #F4F4F4;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  border: 2px solid #8E44AD;
+}
+
+#caja_principal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #8E44AD;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2C2C3A;
+}
+
+input {
+  width: 335px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #2C2C3A;
+}
+
+input:focus {
+  outline: none;
+  border-color: #8E44AD;
+  box-shadow: 0 0 5px #D5B8FF;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #8E44AD;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #732d91;
+}

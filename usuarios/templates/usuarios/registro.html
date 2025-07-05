@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <!-- Enlace al archivo CSS para estilos del formulario -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/formulario.css' %}">
+</head>
+<body>
+    <!-- Contenedor principal del formulario de registro -->
+    <div id="caja_principal">
+        <h2>Registro</h2>
+        <!-- Formulario para el registro de nuevos usuarios -->
+        <form method="POST">
+            {% csrf_token %}  <!-- Protección contra ataques CSRF -->
+            
+            <!-- errores -->
+            {% if form.errors %}
+            <div class="error">
+                <ul>
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                        <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li><strong>Error:</strong> {{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            
+            <!-- Renderizamos todos los campos automáticamente -->
+            {% for field in form %}
+                <div class="field-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="field-error">
+                            {% for error in field.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <!-- Botón para enviar el formulario -->
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+    <div style="margin-top: 20px;">
+        <a href="{% url 'home' %}" style="color: #8E44AD; text-decoration: none;">← Volver al inicio</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+/* Navbar general */
+.navbar-personal {
+  background-color: #2C2C3A;
+  padding: 1rem 0;
+  color: #F4F4F4;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #F1C40F;
+  text-decoration: none;
+}
+
+/* Menú responsive */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #F4F4F4;
+}
+
+/* Enlaces */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #F4F4F4;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #D5B8FF;
+}
+
+/* Botones */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-outline {
+  padding: 0.5rem 1rem;
+  border: 2px solid #F4F4F4;
+  background: transparent;
+  color: #F4F4F4;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #8E44AD;
+  border-color: #8E44AD;
+  color: #fff;
+}
+
+.btn-filled {
+  padding: 0.5rem 1rem;
+  background-color: #F1C40F;
+  color: #2C2C3A;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-filled:hover {
+  background-color: #D4AC0D;
+}
+
+.btn-cart {
+  background-color: #D5B8FF;
+  color: #2C2C3A;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-cart:hover {
+  background-color: #8E44AD;
+  color: #fff;
+}
+
+/* Responsive (móvil) */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links,
+  .nav-buttons {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  #menu-toggle:checked ~ .nav-links,
+  #menu-toggle:checked ~ .nav-buttons {
+    display: flex;
+  }
+}
+
+/* SOBRE NOSOTROS*/
+.about-modern {
+  background-color: #F4F4F4; /* Fondo suave */
+  padding: 4rem 1rem;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-image .about-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+.about-text {
+  max-width: 500px;
+  color: #2C2C3A;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #8E44AD; /* Morado */
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+
+/*PLATOS DESTACADOS*/
+.featured-section {
+  background-color: #2C2C3A;
+  padding: 4rem 1rem;
+  color: #F4F4F4;
+}
+
+.featured-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.featured-title {
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #F1C40F;
+}
+
+.featured-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.featured-card {
+  background-color: #3A3A4D;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+}
+
+.featured-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.featured-card h3 {
+  margin: 1rem 0 0.5rem;
+  color: #D5B8FF;
+}
+
+.btn-vermas {
+  background-color: transparent;
+  border: 2px solid #F4F4F4;
+  color: #F4F4F4;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-vermas:hover {
+  background-color: #8E44AD;
+  border-color: #8E44AD;
+  color: #fff;
+}
+
+/*CTA*/
+.cta-section {
+  background-color: #8E44AD;
+  color: #F4F4F4;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #F1C40F;
+  color: #2C2C3A;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #D4AC0D;
+}
+
+/*FOOTER*/
+.footer-section {
+  background-color: #2C2C3A;
+  color: #F4F4F4;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: auto;
+}
+
