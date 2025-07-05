@@ -25,6 +25,12 @@ urlpatterns = [
     path('crear-empleado/', views.crear_empleado, name='crear_empleado'),
     path('panel-gerente/', views.panel_gerente, name='panel_gerente'),
     path('ver-empleados/', views.ver_empleados, name='ver_empleados'),
+
+    # URLs para recuperación de contraseña
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='usuarios/password_reset.html'), name='password_reset'),
+    path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='usuarios/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='usuarios/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='usuarios/password_reset_complete.html'), name='password_reset_complete'),
     
 
 ]

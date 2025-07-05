@@ -99,8 +99,9 @@ def login_view(request):
                 return redirect('home')  # Redirige al home normal si no es gerente
         else:
             messages.error(request, 'Nombre o contraseña incorrectos')
+            return render(request, 'usuarios/login.html')  # Solo muestra error si falló el login
 
-    return render(request, 'usuarios/login.html')  
+    return render(request, 'usuarios/login.html')  # Para método GET
 
 # Vista para cerrar sesión
 def logout_view(request):
